@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_Background_gray">#F5F7FA</color>
+
+    <color name="dark_text_primary">#1F2937</color>
+
+    <color name="vibrant_blue">#2563EB</color>
+
+    <color name="darker_blue">#042489</color>
+
+    <color name="deep_orange">#F97316</color>
+
+    <color name="light_blue">#8FC3F3</color>
+
+    <color name="log_button_purple">#6137C1</color>
+
+    <color name="sky_blue">#2196F3</color>
+
+<!--    Color Name,Hex Code,Purpose in Design-->
+    <color name="bg_light_gray">#F5F7FA</color>
+
+<!--    Main screen background (used in activity_main.xml and fragment_history.xml).-->
+   <color name="bg_extra_light_gray">#F3F4F6</color>
+
+    <!-- "Used for subtle text accents (e.g., goal text)."-->
+    <color name="card_white">#FFFFFF</color>
+
+    Background for all standard CardViews.
+    <color name="text_dark_primary">#1F2937</color>
+
+    Main headers and primary text.
+    <color name="text_secondary_gray">#6B7280</color>
+
+    "Subtitles, summaries, and secondary text."
+    <color name="text_light_gray">#D1D5DB</color>
+
+    Text inside the main Steps card for low contrast.
+    <color name="accent_water_blue">#2563EB</color>
+
+    Accent for Water Intake (progress and text).
+    <color name="accent_calories_orange">#F97316</color>
+
+    Accent for Calories Burned.
+    <color name="accent_log_purple">#8B5CF6</color>
+
+    "Background color for the ""Log Meal"" button."
+
+
+</resources>
