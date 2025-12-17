@@ -8,7 +8,7 @@
     android:background="#F5F7FA"
     android:clipToPadding="false"
     android:paddingBottom="16dp"
-    tools:context=".ProfileActivity">
+    tools:context=".fragments.ProfileFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

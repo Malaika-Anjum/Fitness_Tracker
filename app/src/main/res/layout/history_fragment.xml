@@ -8,7 +8,7 @@
     android:background="#F5F7FA"
     android:clipToPadding="false"
     android:paddingBottom="16dp"
-    tools:context=".HistoryActivity">
+    tools:context=".fragments.HistoryFragment">
 
     <!-- ConstraintLayout as the single container for all elements -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,6 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
+                android:id="@+id/trend_over_time_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -178,6 +179,13 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

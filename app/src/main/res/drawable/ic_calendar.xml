@@ -1,0 +1,73 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Top left binding -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="?attr/colorControlNormal"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M8,2 V6" />
+
+    <!-- Top right binding -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="?attr/colorControlNormal"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M16,2 V6" />
+
+    <!-- Calendar body -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="?attr/colorControlNormal"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M5,4
+                          H19
+                          a2,2 0 0,1 2,2
+                          V20
+                          a2,2 0 0,1 -2,2
+                          H5
+                          a2,2 0 0,1 -2,-2
+                          V6
+                          a2,2 0 0,1 2,-2
+                          Z" />
+
+    <!-- Separator line -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="?attr/colorControlNormal"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M3,10 H21" />
+
+    <!-- Day dots -->
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M8,14 h0.01" />
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M12,14 h0.01" />
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M16,14 h0.01" />
+
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M8,18 h0.01" />
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M12,18 h0.01" />
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M16,18 h0.01" />
+
+</vector>

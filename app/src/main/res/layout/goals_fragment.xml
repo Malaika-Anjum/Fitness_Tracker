@@ -8,7 +8,7 @@
     android:background="#F5F7FA"
     android:clipToPadding="false"
     android:paddingBottom="16dp"
-    tools:context=".LogActivity">
+    tools:context=".fragments.GoalsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,30 +22,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Record New Activity"
+            android:text="Manage Your Health Goals"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#1F2937"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="16dp"/>
 
-        <!-- Date Picker (Allows logging for past days) -->
-        <TextView
-            android:id="@+id/text_selected_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Logging for: Today, Nov 19"
-            android:textSize="16sp"
-            android:textColor="#2563EB"
-            android:padding="12dp"
-            android:drawableStart="@drawable/ic_calendar"
-            android:drawablePadding="8dp"
-            android:background="@drawable/rounded_border"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- 1. Log Water Section (Blue Accent) -->
+        <!-- 1. Steps Goal Card (Editable Daily Goal) -->
         <androidx.cardview.widget.CardView
             style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="match_parent"
@@ -58,52 +41,112 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💧 Log Water Intake (ml)"
-                    android:textSize="18sp"
+                    android:text="Daily Steps Target"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#8B5CF6"
+                    android:layout_marginBottom="12dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/input_steps_goal_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:hintTextColor="#8B5CF6"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_steps_goal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Set Target (e.g., 10000)"
+                        android:text="10,000"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_update_steps_goal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Update Steps Goal"
+                    android:backgroundTint="#8B5CF6"
+                    app:cornerRadius="12dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 2. Water Goal Card -->
+        <androidx.cardview.widget.CardView
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily Water Goal (ml)"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#2563EB"
                     android:layout_marginBottom="12dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_water_layout"
+                    android:id="@+id/input_water_goal_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxCornerRadiusTopStart="8dp"
                     app:boxCornerRadiusTopEnd="8dp"
                     app:boxCornerRadiusBottomStart="8dp"
                     app:boxCornerRadiusBottomEnd="8dp"
+                    app:hintTextColor="#2563EB"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_water"
+                        android:id="@+id/input_water_goal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="e.g., 500"
-                        android:inputType="numberDecimal"/>
+                        android:hint="Set Target (e.g., 2000)"
+                        android:text="2,000"
+                        android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/btn_save_water"
+                    android:id="@+id/btn_update_water_goal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Add Water"
+                    android:text="Update Water Goal"
                     android:backgroundTint="#2563EB"
                     app:cornerRadius="12dp"/>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 2. Log Meal/Calories Section (Orange Accent) -->
+
+        <!-- 3. Weight Tracking Goal Card (Long-term Goal) -->
         <androidx.cardview.widget.CardView
             style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp">
 
@@ -111,97 +154,81 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🍔 Log Meal (Calories)"
-                    android:textSize="18sp"
+                    android:text="Weight Tracking Goal"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#F97316"
                     android:layout_marginBottom="12dp"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_calories_layout"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxCornerRadiusTopStart="8dp"
-                    app:boxCornerRadiusTopEnd="8dp"
-                    app:boxCornerRadiusBottomStart="8dp"
-                    app:boxCornerRadiusBottomEnd="8dp"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="12dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_calories"
-                        android:layout_width="match_parent"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="e.g., 350"
-                        android:inputType="number"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:hintTextColor="#F97316"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_current_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Current Weight (kg/lb)"
+                            android:inputType="numberDecimal"
+                            android:text="75.5"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:hintTextColor="#F97316"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_target_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Target Weight (kg/lb)"
+                            android:inputType="numberDecimal"
+                            android:text="70.0"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
                 <Button
-                    android:id="@+id/btn_save_calories"
+                    android:id="@+id/btn_update_weight_goal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Add Meal"
+                    android:text="Log New Weight / Update Target"
                     android:backgroundTint="#F97316"
                     app:cornerRadius="12dp"/>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 3. Manual Steps Section (Purple Accent) -->
-        <androidx.cardview.widget.CardView
-            style="@style/Widget.Material3.CardView.Elevated"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="👟 Manual Steps Log"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#1F2937"
-                    android:layout_marginBottom="12dp"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_steps_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxCornerRadiusTopStart="8dp"
-                    app:boxCornerRadiusTopEnd="8dp"
-                    app:boxCornerRadiusBottomStart="8dp"
-                    app:boxCornerRadiusBottomEnd="8dp"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_steps"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="e.g., 1500"
-                        android:inputType="number"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <Button
-                    android:id="@+id/btn_save_steps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Add Steps"
-                    android:backgroundTint="#8B5CF6"
-                    app:cornerRadius="12dp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+            android:layout_height="100dp"/>
 
     </LinearLayout>
 </ScrollView>
