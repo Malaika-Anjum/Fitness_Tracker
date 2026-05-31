@@ -31,8 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Today's Progress"
-                android:textColor="#1F2937"
-                android:textSize="28sp"
+                android:textColor="@color/black"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="16dp"/>
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="6dp">
+                app:cardElevation="2dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -101,26 +101,13 @@
                             android:layout_height="wrap_content"
                             android:text="STEPS"
                             android:textSize="14sp"
-                            android:textColor="#D1D5DB"
+                            android:textColor="@color/card_white"
                             app:layout_constraintTop_toBottomOf="@id/text_steps_count"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             android:layout_marginTop="-6dp"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/steps_tip"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="You're halfway there! Keep moving."
-                        android:textColor="#E5E7EB"
-                        android:textSize="14sp"
-                        android:gravity="center"
-                        android:layout_marginTop="16dp"
-                        app:layout_constraintTop_toBottomOf="@id/circle_area"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -146,7 +133,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="110dp"
                         android:orientation="vertical"
                         android:padding="14dp">
 
@@ -159,13 +146,13 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:src="@drawable/ic_drop"
-                                app:tint="#2563EB"/>
+                                app:tint="@color/accent_water_blue"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Water Intake"
-                                android:textColor="#2563EB"
+                                android:textColor="@color/accent_water_blue"
                                 android:textSize="16sp"
                                 android:layout_marginStart="6dp"/>
                         </LinearLayout>
@@ -178,7 +165,7 @@
                             android:textSize="28sp"
                             android:textStyle="bold"
                             android:layout_marginTop="6dp"
-                            android:textColor="#2563EB"/>
+                            android:textColor="@color/accent_water_blue"/>
 
                         <ProgressBar
                             android:id="@+id/progress_water"
@@ -187,7 +174,7 @@
                             android:layout_height="8dp"
                             android:max="100"
                             tools:progress="60"
-                            android:progressTint="#2563EB"
+                            android:progressTint="@color/accent_water_blue"
                             android:layout_marginTop="10dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -208,7 +195,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="110dp"
                         android:orientation="vertical"
                         android:padding="14dp">
 
@@ -227,7 +214,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Calories Burned"
-                                android:textColor="#F97316"
+                                android:textColor="@color/accent_calories_orange"
                                 android:textSize="16sp"
                                 android:layout_marginStart="6dp"/>
                         </LinearLayout>
@@ -240,15 +227,7 @@
                             android:textSize="28sp"
                             android:textStyle="bold"
                             android:layout_marginTop="6dp"
-                            android:textColor="#F97316"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="From Steps"
-                            android:textSize="12sp"
-                            android:textColor="#6B7280"
-                            android:layout_marginTop="4dp"/>
+                            android:textColor="@color/accent_calories_orange"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -262,7 +241,7 @@
                 android:text="Log Meal / Calorie Intake"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:backgroundTint="@color/sky_blue"
+                android:backgroundTint="@color/darker_blue"
                 android:textColor="@color/white"
                 app:cornerRadius="14dp"
                 style="@style/Widget.Material3.Button.ElevatedButton"/>

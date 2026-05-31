@@ -23,9 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Manage Your Health Goals"
-            android:textSize="28sp"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#1F2937"
+            android:textColor="@color/black"
             android:layout_marginBottom="16dp"/>
 
         <!-- 1. Steps Goal Card (Editable Daily Goal) -->
@@ -49,7 +49,7 @@
                     android:text="Daily Steps Target"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#8B5CF6"
+                    android:textColor="@color/log_button_purple"
                     android:layout_marginBottom="12dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -61,7 +61,7 @@
                     app:boxCornerRadiusTopEnd="8dp"
                     app:boxCornerRadiusBottomStart="8dp"
                     app:boxCornerRadiusBottomEnd="8dp"
-                    app:hintTextColor="#8B5CF6"
+                    app:hintTextColor="@color/text_dark_primary"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="Update Steps Goal"
-                    android:backgroundTint="#8B5CF6"
+                    android:backgroundTint="@color/log_button_purple"
                     app:cornerRadius="12dp"/>
 
             </LinearLayout>
@@ -106,7 +106,7 @@
                     android:text="Daily Water Goal (ml)"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#2563EB"
+                    android:textColor="@color/accent_water_blue"
                     android:layout_marginBottom="12dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -117,7 +117,7 @@
                     app:boxCornerRadiusTopEnd="8dp"
                     app:boxCornerRadiusBottomStart="8dp"
                     app:boxCornerRadiusBottomEnd="8dp"
-                    app:hintTextColor="#2563EB"
+                    app:hintTextColor="@color/text_dark_primary"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -135,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="Update Water Goal"
-                    android:backgroundTint="#2563EB"
+                    android:backgroundTint="@color/accent_water_blue"
                     app:cornerRadius="12dp"/>
 
             </LinearLayout>
@@ -162,7 +162,7 @@
                     android:text="Weight Tracking Goal"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#F97316"
+                    android:textColor="@color/accent_calories_orange"
                     android:layout_marginBottom="12dp"/>
 
                 <LinearLayout
@@ -181,7 +181,7 @@
                         app:boxCornerRadiusTopEnd="8dp"
                         app:boxCornerRadiusBottomStart="8dp"
                         app:boxCornerRadiusBottomEnd="8dp"
-                        app:hintTextColor="#F97316"
+                        app:hintTextColor="@color/text_dark_primary"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -190,7 +190,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Current Weight (kg/lb)"
                             android:inputType="numberDecimal"
-                            android:text="75.5"/>
+                            android:text="75.0"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -202,7 +202,7 @@
                         app:boxCornerRadiusTopEnd="8dp"
                         app:boxCornerRadiusBottomStart="8dp"
                         app:boxCornerRadiusBottomEnd="8dp"
-                        app:hintTextColor="#F97316"
+                        app:hintTextColor="@color/text_dark_primary"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -220,7 +220,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Log New Weight / Update Target"
-                    android:backgroundTint="#F97316"
+                    android:backgroundTint="@color/accent_calories_orange"
                     app:cornerRadius="12dp"/>
 
             </LinearLayout>

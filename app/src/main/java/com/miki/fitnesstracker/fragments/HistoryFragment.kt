@@ -1,81 +1,79 @@
 package com.miki.fitnesstracker.fragments
 
+import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
+import android.view.*
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.*
 import com.miki.fitnesstracker.R
 import com.miki.fitnesstracker.adapter.DailySummaryAdapter
-import com.miki.fitnesstracker.room.FitnessLogEntity
 import com.miki.fitnesstracker.room.FitnessViewModel
-import java.util.Calendar
 
-
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(R.layout.history_fragment) {
 
     private val viewModel: FitnessViewModel by viewModels()
-    private lateinit var recyclerView: RecyclerView
+
+    private lateinit var chart: BarChart
+    private lateinit var avgText: TextView
+    private lateinit var recycler: RecyclerView
     private lateinit var adapter: DailySummaryAdapter
 
-    private lateinit var btnWeek: Button
-    private lateinit var btnMonth: Button
-    private lateinit var btnYear: Button
+    private var filter = Filter.WEEK
 
-    private var currentFilter = FilterPeriod.WEEK
+    enum class Filter { DAY, WEEK, MONTH }
 
-    enum class FilterPeriod { WEEK, MONTH, YEAR }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.history_fragment, container, false)
+        chart = view.findViewById(R.id.steps_chart_view)
+        avgText = view.findViewById(R.id.chart_summary_text)
+        recycler = view.findViewById(R.id.daily_summary_recycler_view)
 
-        recyclerView = view.findViewById(R.id.daily_summary_recycler_view)
         adapter = DailySummaryAdapter(mutableListOf())
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adapter
+        recycler.layoutManager = LinearLayoutManager(requireContext())
+        recycler.adapter = adapter
 
-        btnWeek = view.findViewById(R.id.btn_select_week)
-        btnMonth = view.findViewById(R.id.btn_select_month)
-        btnYear = view.findViewById(R.id.btn_select_year)
+        view.findViewById<Button>(R.id.btn_select_day).setOnClickListener { filter = Filter.DAY }
+        view.findViewById<Button>(R.id.btn_select_week).setOnClickListener { filter = Filter.WEEK }
+        view.findViewById<Button>(R.id.btn_select_month).setOnClickListener { filter = Filter.MONTH }
 
-        btnWeek.setOnClickListener { changeFilter(FilterPeriod.WEEK) }
-        btnMonth.setOnClickListener { changeFilter(FilterPeriod.MONTH) }
-        btnYear.setOnClickListener { changeFilter(FilterPeriod.YEAR) }
-
-        observeLogs()
-
-        return view
-    }
-
-    private fun changeFilter(filter: FilterPeriod) {
-        currentFilter = filter
-        adapter.updateLogs(filterLogs(viewModel.allLogs.value ?: emptyList(), currentFilter))
-    }
-
-    private fun observeLogs() {
         viewModel.allLogs.observe(viewLifecycleOwner) { logs ->
-            val filteredLogs = filterLogs(logs, currentFilter)
-            adapter.updateLogs(filteredLogs)
+            update(logs)
         }
     }
 
-    private fun filterLogs(logs: List<FitnessLogEntity>, period: FilterPeriod): List<FitnessLogEntity> {
-        val calendar = Calendar.getInstance()
-        val today = calendar.timeInMillis
+    private fun update(logs: List<com.miki.fitnesstracker.room.FitnessLogEntity>) {
 
-        return logs.filter { log ->
-            when (period) {
-                FilterPeriod.WEEK -> log.date >= today - 7 * 24 * 60 * 60 * 1000L
-                FilterPeriod.MONTH -> log.date >= today - 30 * 24 * 60 * 60 * 1000L
-                FilterPeriod.YEAR -> log.date >= today - 365 * 24 * 60 * 60 * 1000L
+        val now = System.currentTimeMillis()
+
+        val filtered = logs.filter {
+            when (filter) {
+                Filter.DAY -> it.date >= now - 24 * 60 * 60 * 1000L
+                Filter.WEEK -> it.date >= now - 7 * 24 * 60 * 60 * 1000L
+                Filter.MONTH -> it.date >= now - 30 * 24 * 60 * 60 * 1000L
             }
-        }.sortedByDescending { it.date }
+        }.sortedBy { it.date }
+
+        val entries = filtered.mapIndexed { index, log ->
+            BarEntry(index.toFloat(), log.steps.toFloat())
+        }
+
+        val dataSet = BarDataSet(entries, "Steps").apply {
+            color = Color.BLUE
+            valueTextColor = Color.BLACK
+        }
+
+        chart.data = BarData(dataSet)
+        chart.description.isEnabled = false
+        chart.setFitBars(true)
+        chart.invalidate()
+
+        val avg = if (filtered.isNotEmpty()) filtered.map { it.steps }.average() else 0.0
+        avgText.text = "Average steps: ${avg.toInt()}"
+
+        adapter.updateLogs(filtered)
     }
 }

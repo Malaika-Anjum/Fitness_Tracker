@@ -22,10 +22,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Profile &amp; Settings"
-            android:textSize="28sp"
+            android:text="Profile"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#1F2937"
+            android:textColor="@color/black"
             android:layout_marginBottom="16dp"/>
 
         <!-- 1. Profile Summary Card -->
@@ -50,8 +50,8 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="12dp"
+                    android:scaleType="fitXY"
                     android:background="@drawable/circle_background"
-                    android:padding="16dp"
                     app:tint="@android:color/white"
                     android:src="@drawable/ic_profile"
                     tools:ignore="ContentDescription" />
@@ -61,19 +61,19 @@
                     android:id="@+id/text_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Guest User"
+                    android:text="@string/guest_user"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="#1F2937"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="4dp"/>
 
                 <TextView
-                    android:id="@+id/text_user_email"
+                    android:id="@+id/text_user_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Current Weight: 75.5 kg"
+                    android:text="@string/current_weight_65_0_kg"
                     android:textSize="14sp"
-                    android:textColor="#6B7280"/>
+                    android:textColor="@color/text_secondary_gray"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -99,7 +99,7 @@
                     android:text="Account Details"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="#2563EB"
+                    android:textColor="@color/darker_blue"
                     android:layout_marginBottom="12dp"/>
 
                 <!-- Detail Row Example (Age) -->
@@ -113,15 +113,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Age"
-                        android:textColor="#4B5563"
+                        android:textColor="@color/black"
                         android:textSize="16sp"/>
                     <TextView
                         android:id="@+id/detail_age"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="30 years"
+                        android:text="22 years"
                         android:textStyle="bold"
-                        android:textColor="#1F2937"
+                        android:textColor="@color/text_dark_primary"
                         android:textSize="16sp"/>
                 </LinearLayout>
 
@@ -138,15 +138,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Height"
-                        android:textColor="#4B5563"
+                        android:textColor="@color/black"
                         android:textSize="16sp"/>
                     <TextView
                         android:id="@+id/detail_height"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="175 cm"
+                        android:text="170 cm"
                         android:textStyle="bold"
-                        android:textColor="#1F2937"
+                        android:textColor="@color/text_dark_primary"
                         android:textSize="16sp"/>
                 </LinearLayout>
 
@@ -174,19 +174,20 @@
                     android:text="App Preferences"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="#F97316"
+                    android:textColor="@color/accent_log_purple"
                     android:layout_marginBottom="12dp"/>
 
                 <!-- Setting 1: Notifications -->
-                <com.google.android.material.switchmaterial.SwitchMaterial
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_notifications"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Daily Reminder Notifications"
+                    android:checked="true"
                     android:paddingVertical="8dp"
-                    android:textColor="#4B5563"
+                    android:text="Daily Reminder Notifications"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:checked="true"/>
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E5E7EB"/>
 
@@ -202,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Unit System"
-                        android:textColor="#4B5563"
+                        android:textColor="@color/black"
                         android:textSize="16sp"/>
                     <!-- Use a Spinner or RadioGroup in a real app, using a Button placeholder here -->
                     <Button
@@ -212,7 +213,7 @@
                         android:text="Metric (kg/cm)"
                         android:textSize="14sp"
                         style="@style/Widget.Material3.Button.TextButton"
-                        android:textColor="#1F2937"/>
+                        android:textColor="@color/dark_text_primary"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -224,14 +225,18 @@
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Log Out / Sign Out"
+            android:text="Log Out"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:backgroundTint="#EF4444"
+            android:backgroundTint="@color/deep_orange"
             android:textColor="@android:color/white"
             app:cornerRadius="16dp"
             android:layout_marginTop="16dp"
             style="@style/Widget.Material3.Button.ElevatedButton"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
 
     </LinearLayout>
 </ScrollView>

@@ -23,9 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Record New Activity"
-            android:textSize="28sp"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#1F2937"
+            android:textColor="@color/black"
             android:layout_marginBottom="8dp"/>
 
         <!-- Date Picker (Allows logging for past days) -->

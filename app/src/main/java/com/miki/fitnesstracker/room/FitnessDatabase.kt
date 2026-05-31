@@ -1,6 +1,5 @@
 package com.miki.fitnesstracker.room
 
-
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -21,7 +20,10 @@ abstract class FitnessDatabase : RoomDatabase() {
                     context.applicationContext,
                     FitnessDatabase::class.java,
                     "fitness_db"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
+
                 INSTANCE = instance
                 instance
             }

@@ -10,11 +10,13 @@
 
     <color name="darker_blue">#042489</color>
 
-    <color name="deep_orange">#F97316</color>
+    <color name="deep_orange">#FF2500</color>
 
     <color name="light_blue">#8FC3F3</color>
 
     <color name="log_button_purple">#6137C1</color>
+
+    <color name="light_purple">#D2E0FF</color>
 
     <color name="sky_blue">#2196F3</color>
 
